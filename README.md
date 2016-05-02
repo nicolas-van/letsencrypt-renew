@@ -2,4 +2,4 @@
 
 Crontab entry:
 
-  @daily /root/renew-ssl-certs.bash
+    @daily /root/renew-ssl-certs.bash
