@@ -27,7 +27,15 @@ The last step is to modify the nginx configuration:
     server {
         listen 80;
         server_name ${your_domain_name};
-        rewrite ^ https://$server_name$request_uri? permanent;
+
+        location ~ /.well-known {
+            allow all;
+            root /var/www/letsencrypt;
+        }
+
+        location / {
+            return 301 https://$server_name$request_uri;
+        }
     }
 
     server {
