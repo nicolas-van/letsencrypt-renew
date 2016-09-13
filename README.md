@@ -11,7 +11,7 @@ Install Let's Encrypt and auto renew cron job:
     chmod +x renew-ssl-certs.bash
     (crontab -l ; echo "@daily /root/renew-ssl-certs.bash")| crontab -
     
-To register a domain first add these lines inside the `server` part of your nginx configuration:
+To register a domain first add these lines inside the `server` part of your nginx configuration (you should already have a working configuration on http):
 
     location ~ /.well-known {
         allow all;
@@ -38,5 +38,16 @@ The last step is to modify the nginx configuration:
         ssl_certificate_key /etc/letsencrypt/live/${your_domain_name}/privkey.pem;
         ssl_protocols TLSv1 TLSv1.1 TLSv1.2;
         
+        location ~ /.well-known {
+            allow all;
+            root /var/www/letsencrypt;
+        }
+        
         ...
+        
+        
     }
+    
+To test the autorenewal:
+
+    letsencrypt renew --dry-run --agree-tos
