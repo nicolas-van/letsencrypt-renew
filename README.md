@@ -45,11 +45,6 @@ The last step is to modify the nginx configuration:
         ssl_certificate /etc/letsencrypt/live/${your_domain_name}/fullchain.pem;
         ssl_certificate_key /etc/letsencrypt/live/${your_domain_name}/privkey.pem;
         
-        location ~ /.well-known {
-            allow all;
-            root /var/www/letsencrypt;
-        }
-        
         ...
         
         
