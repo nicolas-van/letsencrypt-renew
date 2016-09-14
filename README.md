@@ -39,7 +39,7 @@ The last step is to modify the nginx configuration:
     }
 
     server {
-        listen 443 ssl;
+        listen 443 ssl http2;
         server_name ${your_domain_name};
     
         ssl_certificate /etc/letsencrypt/live/${your_domain_name}/fullchain.pem;
