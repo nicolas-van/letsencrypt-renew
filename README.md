@@ -26,6 +26,10 @@ To register a domain first add this to your nginx configuration (if you already 
             return 301 https://$server_name$request_uri;
         }
     }
+    
+Don't forget this:
+
+    systemctl reload nginx
 
 Then type:
 
@@ -44,6 +48,10 @@ The last step is to add the nginx configuration for your new ssl-enabled website
         
         
     }
+    
+Again:
+
+    systemctl reload nginx
     
 To test the autorenewal:
 
