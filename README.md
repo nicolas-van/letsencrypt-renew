@@ -31,7 +31,7 @@ Then type:
 
     letsencrypt certonly --webroot -w /var/www/letsencrypt -d ${your_domain_name}
 
-The last step is to modify the nginx configuration for your new ssl-enabled website:
+The last step is to add the nginx configuration for your new ssl-enabled website:
 
     server {
         listen 443 ssl http2;
