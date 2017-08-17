@@ -23,7 +23,7 @@ To register a domain first add this to your nginx configuration (if you already 
         }
     
         location / {
-            return 301 https://$server_name$request_uri;
+            return 301 https://$host$request_uri;
         }
     }
     
