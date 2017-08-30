@@ -4,5 +4,5 @@ echo >> /var/log/renew-ssl-certs.log
 date >> /var/log/renew-ssl-certs.log
 echo ============================= >> /var/log/renew-ssl-certs.log
 letsencrypt renew >> /var/log/renew-ssl-certs.log 2>&1
-/usr/sbin/service nginx reload
+/bin/systemctl reload nginx
 
